@@ -1,7 +1,7 @@
 package com.microservice.onlinebankappbff.entity;
 
 import com.microservice.onlinebankappbff.dto.CustomerDto;
-import com.microservice.onlinebankappbff.utility.enums.Gender;
+import com.microservice.onlinebankappbff.utility.enums.gender.Gender;
 import lombok.*;
 
 import java.time.LocalDate;

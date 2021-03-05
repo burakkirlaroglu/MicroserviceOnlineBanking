@@ -2,7 +2,7 @@ package com.microservice.onlinebankappbff.dto;
 
 import com.microservice.onlinebankappbff.entity.Address;
 import com.microservice.onlinebankappbff.entity.Customer;
-import com.microservice.onlinebankappbff.utility.enums.Gender;
+import com.microservice.onlinebankappbff.utility.enums.gender.Gender;
 import lombok.Builder;
 import lombok.Data;
 
