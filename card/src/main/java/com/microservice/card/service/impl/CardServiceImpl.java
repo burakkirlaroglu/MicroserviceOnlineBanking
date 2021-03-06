@@ -7,7 +7,9 @@ import com.microservice.card.repository.CardRepository;
 import com.microservice.card.service.CardService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
 
@@ -24,12 +26,27 @@ public class CardServiceImpl extends NumberGenerator implements CardService {
         return cardRepository.findAll(pageable);
     }
 
-    public Card getById(int id) {
+    public Card getById(UUID id) {
         return cardRepository.getById(id);
     }
 
-    public Card shopping(int id, CardDto cardDto){
-        return null;
+    public Card shopping(UUID id, CardDto cardDto){
+        Card card = cardRepository.getById(id);
+        if (card.getCustomerId() != null){
+            double amount = cardDto.getAmount();
+            double cardDebt = card.getCardDebt();
+            if (card.getCardNo().equals(cardDto.getCardNo()) &
+                    card.getCardPassword().equals(cardDto.getCardPassword()) &
+                    card.getCardCvc() == cardDto.getCardCvc()) {
+                card.setCardLimit(card.getCardLimit() - amount);
+                card.setCardDebt(cardDebt + amount);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong Cvc or Card No or Password!");
+            }
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no customer with id "+card.getCustomerId());
+        }
+        return card;
     }
 
     public Card addCard(CardDto cardDto) {

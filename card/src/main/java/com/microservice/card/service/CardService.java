@@ -11,9 +11,9 @@ public interface CardService {
 
     Page<Card> list(Pageable pageable);
 
-    Card getById(int id);
+    Card getById(UUID id);
 
-    Card shopping(int id, CardDto cardDto);
+    Card shopping(UUID id, CardDto cardDto);
 
     Card addCard(CardDto cardDto);
 

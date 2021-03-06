@@ -1,6 +1,5 @@
 package com.microservice.card.dto;
 
-import com.microservice.card.entity.Card;
 import lombok.*;
 
 import javax.persistence.Id;
