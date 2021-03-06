@@ -30,5 +30,5 @@ public class CardDto {
 
     private double cardDebt;
 
-    private UUID customerId;
+    private long customerId;
 }

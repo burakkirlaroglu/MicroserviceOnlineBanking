@@ -4,6 +4,7 @@ import com.microservice.onlinebankappbff.entity.Card;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -26,6 +27,8 @@ public class CardDto {
 
     private double cardDebt;
 
+    private long customerId;
+
 
     public Card toCard(){
         return Card.builder()
@@ -35,6 +38,7 @@ public class CardDto {
                 .cardType(this.cardType)
                 .cardLimit(this.cardLimit)
                 .cardPassword(this.cardPassword)
+                .customerId(this.customerId)
                 .build();
     }
 }

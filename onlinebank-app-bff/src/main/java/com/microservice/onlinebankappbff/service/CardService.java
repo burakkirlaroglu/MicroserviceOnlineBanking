@@ -1,9 +1,11 @@
 package com.microservice.onlinebankappbff.service;
 
-import java.util.UUID;
+import com.microservice.onlinebankappbff.entity.Card;
 
-public interface CardService<T> {
+import java.util.List;
 
-    T getById(UUID uuid);
+public interface CardService {
+
+    List<Card> getByCustomerId(long tc);
 
 }

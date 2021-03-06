@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="CARD DB" uuid="2de44118-ad7b-4061-9067-5cfb43abeb43">
+    <data-source source="LOCAL" name="card db" uuid="f483d027-c02f-4163-9ce8-7fb7f5874420">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

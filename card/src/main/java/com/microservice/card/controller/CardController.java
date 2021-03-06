@@ -38,10 +38,16 @@ public class CardController {
                     .collect(Collectors.toList());
     }
 
+//    @GetMapping("/{id}")
+//    @ResponseStatus(value = HttpStatus.OK)
+//    public Card getCardById(@PathVariable UUID id){
+//        return cardService.getById(id);
+//    }
+
     @GetMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Card getCardById(@PathVariable UUID id){
-        return cardService.getById(id);
+    public List<Card> getCardByCustomerId(@PathVariable long id){
+        return cardService.getByCustomerId(id);
     }
 
     @PostMapping("/shop/{id}")

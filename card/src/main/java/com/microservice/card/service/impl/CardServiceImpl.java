@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -30,9 +31,14 @@ public class CardServiceImpl extends NumberGenerator implements CardService {
         return cardRepository.getById(id);
     }
 
+    @Override
+    public List<Card> getByCustomerId(Long tc) {
+        return cardRepository.getByCustomerId(tc);
+    }
+
     public Card shopping(UUID id, CardDto cardDto){
         Card card = cardRepository.getById(id);
-        if (card.getCustomerId() != null){
+        if (card.getCustomerId() > 0){
             double amount = cardDto.getAmount();
             double cardDebt = card.getCardDebt();
             if (card.getCardNo().equals(cardDto.getCardNo()) &
@@ -40,6 +46,7 @@ public class CardServiceImpl extends NumberGenerator implements CardService {
                     card.getCardCvc() == cardDto.getCardCvc()) {
                 card.setCardLimit(card.getCardLimit() - amount);
                 card.setCardDebt(cardDebt + amount);
+                cardRepository.save(card);
             } else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong Cvc or Card No or Password!");
             }

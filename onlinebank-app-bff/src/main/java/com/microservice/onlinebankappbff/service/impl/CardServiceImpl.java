@@ -1,23 +1,23 @@
 package com.microservice.onlinebankappbff.service.impl;
 
 import com.microservice.onlinebankappbff.client.CardServiceClient;
-import com.microservice.onlinebankappbff.dto.CardDto;
+import com.microservice.onlinebankappbff.entity.Card;
 import com.microservice.onlinebankappbff.service.CardService;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+import java.util.List;
 
 @Service
-public class CardServiceİmpl implements CardService {
+public class CardServiceImpl implements CardService {
 
     private final CardServiceClient cardServiceClient;
 
-    public CardServiceİmpl(CardServiceClient cardServiceClient) {
+    public CardServiceImpl(CardServiceClient cardServiceClient) {
         this.cardServiceClient = cardServiceClient;
     }
 
     @Override
-    public Object getById(UUID uuid) {
-        return cardServiceClient.get(uuid);
+    public List<Card> getByCustomerId(long tc) {
+        return cardServiceClient.get(tc);
     }
 }

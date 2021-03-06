@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="CARD DB" uuid="2de44118-ad7b-4061-9067-5cfb43abeb43">
+    <data-source name="card db" uuid="f483d027-c02f-4163-9ce8-7fb7f5874420">
       <database-info product="PostgreSQL" version="12.6" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="12.6" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

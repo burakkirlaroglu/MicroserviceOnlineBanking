@@ -28,6 +28,8 @@ public class Card {
 
     private double cardDebt;
 
+    private long customerId;
+
     public CardDto toCardDto(){
         return CardDto.builder()
                 .id(this.id)
@@ -36,6 +38,7 @@ public class Card {
                 .cardType(this.cardType)
                 .cardLimit(this.cardLimit)
                 .cardPassword(this.cardPassword)
+                .customerId(this.customerId)
                 .build();
     }
 }
