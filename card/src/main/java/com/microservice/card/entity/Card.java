@@ -1,5 +1,6 @@
 package com.microservice.card.entity;
 
+
 import com.microservice.card.dto.CardDto;
 import lombok.*;
 
@@ -38,10 +39,12 @@ public class Card {
 
     private long customerId;
 
-    public CardDto toCardDto(){
+    public CardDto toCardDto() {
         return CardDto.builder()
                 .id(this.id)
                 .cardNo(this.cardNo)
+                .cardCvc(this.cardCvc)
+                .amount(this.amount)
                 .cardDebt(this.cardDebt)
                 .cardType(this.cardType)
                 .cardLimit(this.cardLimit)

@@ -1,5 +1,6 @@
 package com.microservice.card.service.impl;
 
+
 import com.microservice.card.Generator.NumberGenerator;
 import com.microservice.card.dto.CardDto;
 import com.microservice.card.entity.Card;
@@ -36,38 +37,30 @@ public class CardServiceImpl extends NumberGenerator implements CardService {
         return cardRepository.getByCustomerId(tc);
     }
 
-    public Card shopping(UUID id, CardDto cardDto){
-        Card card = cardRepository.getById(id);
-        if (card.getCustomerId() > 0){
-            double amount = cardDto.getAmount();
-            double cardDebt = card.getCardDebt();
-            if (card.getCardNo().equals(cardDto.getCardNo()) &
-                    card.getCardPassword().equals(cardDto.getCardPassword()) &
-                    card.getCardCvc() == cardDto.getCardCvc()) {
-                card.setCardLimit(card.getCardLimit() - amount);
-                card.setCardDebt(cardDebt + amount);
-                cardRepository.save(card);
+    public Card shopping(UUID id, Card card) {
+        Card editedCard = cardRepository.getById(id);
+        if (editedCard.getCustomerId() > 0) {
+            double amount = card.getAmount();
+            double cardDebt = editedCard.getCardDebt();
+            if (editedCard.getCardNo().equals(card.getCardNo()) &
+                    editedCard.getCardPassword().equals(card.getCardPassword()) &
+                    editedCard.getCardCvc() == card.getCardCvc()) {
+                editedCard.setCardLimit(editedCard.getCardLimit() - amount);
+                editedCard.setCardDebt(cardDebt + amount);
+                cardRepository.save(editedCard);
             } else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong Cvc or Card No or Password!");
             }
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no customer with id "+card.getCustomerId());
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no customer with id " + editedCard.getCustomerId());
         }
-        return card;
+        return editedCard;
     }
 
-    public Card addCard(CardDto cardDto) {
-        Card card = new Card();
+    public Card addCard(Card card) {
         card.setId(UUID.randomUUID());
         card.setCardNo(createCardNo());
-        card.setCardDebt(cardDto.getCardDebt());
-        card.setCardType(cardDto.getCardType());
-        card.setCardLimit(cardDto.getCardLimit());
-        card.setCardPassword(cardDto.getCardPassword());
-        card.setAmount(cardDto.getAmount());
         card.setCardCvc(ccvNo());
-        card.setCustomerId(cardDto.getCustomerId());
-        cardRepository.save(card);
-        return card;
+        return cardRepository.save(card);
     }
 }

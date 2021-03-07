@@ -1,6 +1,6 @@
 package com.microservice.card.service;
 
-import com.microservice.card.dto.CardDto;
+
 import com.microservice.card.entity.Card;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,8 +16,8 @@ public interface CardService {
 
     List<Card> getByCustomerId(Long tc);
 
-    Card shopping(UUID id, CardDto cardDto);
+    Card shopping(UUID id, Card card);
 
-    Card addCard(CardDto cardDto);
+    Card addCard(Card card);
 
 }

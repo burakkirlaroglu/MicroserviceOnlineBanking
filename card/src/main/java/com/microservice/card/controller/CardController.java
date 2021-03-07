@@ -26,16 +26,16 @@ public class CardController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Card addNewCard(@RequestBody CardDto cardDto){
-            return cardService.addCard(cardDto);
+    public CardDto addNewCard(@RequestBody CardDto cardDto) {
+        return cardService.addCard(cardDto.toCard()).toCardDto();
     }
 
-    @GetMapping(params = {"page","size"})
+    @GetMapping(params = {"page", "size"})
     @ResponseStatus(value = HttpStatus.OK)
-    public List<CardDto> listCard(@RequestParam("page") int page, @RequestParam("size") int size){
-            return cardService.list(PageRequest.of(page,size)).stream()
-                    .map(Card::toCardDto)
-                    .collect(Collectors.toList());
+    public List<CardDto> listCard(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return cardService.list(PageRequest.of(page, size)).stream()
+                .map(Card::toCardDto)
+                .collect(Collectors.toList());
     }
 
 //    @GetMapping("/{id}")
@@ -46,14 +46,14 @@ public class CardController {
 
     @GetMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Card> getCardByCustomerId(@PathVariable long id){
+    public List<Card> getCardByCustomerId(@PathVariable long id) {
         return cardService.getByCustomerId(id);
     }
 
     @PostMapping("/shop/{id}")
     @ResponseStatus(value = HttpStatus.ACCEPTED)
-    public Card shopWithCard(@PathVariable UUID id, @RequestBody CardDto cardDto){
-        return cardService.shopping(id, cardDto);
+    public CardDto shopWithCard(@PathVariable UUID id, @RequestBody CardDto cardDto) {
+        return cardService.shopping(id, cardDto.toCard()).toCardDto();
     }
 
 
