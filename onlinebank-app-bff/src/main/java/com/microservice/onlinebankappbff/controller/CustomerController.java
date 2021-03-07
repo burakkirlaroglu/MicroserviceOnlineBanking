@@ -2,7 +2,7 @@ package com.microservice.onlinebankappbff.controller;
 
 import com.microservice.onlinebankappbff.dto.CustomerDto;
 import com.microservice.onlinebankappbff.entity.Customer;
-import com.microservice.onlinebankappbff.service.abstrct.CustomerService;
+import com.microservice.onlinebankappbff.service.CustomerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

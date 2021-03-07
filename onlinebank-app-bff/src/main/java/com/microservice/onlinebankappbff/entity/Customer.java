@@ -5,6 +5,7 @@ import com.microservice.onlinebankappbff.utility.enums.gender.Gender;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,6 +22,7 @@ public class Customer {
     private LocalDate customerBirthDate;
     private boolean isState;
     private Address address;
+    private List<Card> cards;
 
     public CustomerDto toCustomerDto() {
         return CustomerDto.builder()
@@ -32,6 +34,7 @@ public class Customer {
                 .customerEmail(this.customerEmail)
                 .customerBirthDate(this.customerBirthDate)
                 .address(this.address)
+                .cards(this.cards)
                 .build();
     }
 }

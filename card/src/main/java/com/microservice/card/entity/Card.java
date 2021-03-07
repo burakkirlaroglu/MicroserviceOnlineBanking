@@ -36,17 +36,17 @@ public class Card {
 
     private double cardDebt;
 
-    private UUID customerId;
+    private long customerId;
 
-    public static CardDto toCardDto(Card card){
+    public CardDto toCardDto(){
         return CardDto.builder()
-                .id(card.id)
-                .cardNo(card.cardNo)
-                .cardDebt(card.cardDebt)
-                .cardType(card.cardType)
-                .cardLimit(card.cardLimit)
-                .cardPassword(card.cardPassword)
-                .customerId(card.customerId)
+                .id(this.id)
+                .cardNo(this.cardNo)
+                .cardDebt(this.cardDebt)
+                .cardType(this.cardType)
+                .cardLimit(this.cardLimit)
+                .cardPassword(this.cardPassword)
+                .customerId(this.customerId)
                 .build();
     }
 

@@ -1,6 +1,5 @@
 package com.microservice.card.dto;
 
-import com.microservice.card.entity.Card;
 import lombok.*;
 
 import javax.persistence.Id;
@@ -31,5 +30,5 @@ public class CardDto {
 
     private double cardDebt;
 
-    private UUID customerId;
+    private long customerId;
 }
