@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e12383-81bc-416c-9629-4bed186c9a59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/controller/DemandDepositAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/controller/DemandDepositAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/controller/SavingsAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/controller/SavingsAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/repository/DemandDepositAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/repository/DemandDepositAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/repository/SavingsAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/repository/SavingsAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/service/abstrct/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/service/abstrct/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/service/concrete/DemandDepositAccountImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/service/concrete/DemandDepositAccountImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/service/concrete/SavingsAccountImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservice/onlinebank/accountservice/service/concrete/SavingsAccountImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../card/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../card/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/client/DemandDepositAccountServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/client/DemandDepositAccountServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/client/SavingsAccountServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/client/SavingsAccountServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/dto/CustomerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/dto/DemandDepositAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/dto/DemandDepositAccountDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/dto/SavingsAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/dto/SavingsAccountDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/entity/DemandDepositAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/entity/DemandDepositAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/entity/SavingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/entity/SavingsAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onlinebank-app-bff/src/main/java/com/microservice/onlinebankappbff/service/impl/CustomerServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614965263181</updated>
       <workItem from="1614965265084" duration="12995000" />
-      <workItem from="1615117638742" duration="3906000" />
+      <workItem from="1615117638742" duration="4263000" />
     </task>
     <task id="LOCAL-00001" summary="AccountService was edited.And customerTC attribute was added to the accounts.">
       <created>1615121991360</created>
@@ -96,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615121991360</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="AccountService was edited.Also Accounts will list.">
+      <created>1615123715371</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615123715371</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +95,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="AccountService was edited.And customerTC attribute was added to the accounts." />
-    <option name="LAST_COMMIT_MESSAGE" value="AccountService was edited.And customerTC attribute was added to the accounts." />
+    <MESSAGE value="AccountService was edited.Also Accounts will list." />
+    <option name="LAST_COMMIT_MESSAGE" value="AccountService was edited.Also Accounts will list." />
   </component>
 </project>

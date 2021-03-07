@@ -8,10 +8,6 @@
       <change beforePath="$PROJECT_DIR$/../account-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/controller/DemandDepositAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/controller/DemandDepositAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/controller/SavingsAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/controller/SavingsAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/dto/DemandDepositAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/dto/DemandDepositAccountDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/dto/SavingsAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/dto/SavingsAccountDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/entity/DemandDepositAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/entity/DemandDepositAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/entity/SavingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/entity/SavingsAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/repository/DemandDepositAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/repository/DemandDepositAccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/repository/SavingsAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/repository/SavingsAccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/service/abstrct/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../account-service/src/main/java/com/microservice/onlinebank/accountservice/service/abstrct/AccountService.java" afterDir="false" />
@@ -97,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615117590531</updated>
       <workItem from="1615117591766" duration="1127000" />
-      <workItem from="1615118776161" duration="2677000" />
+      <workItem from="1615118776161" duration="3992000" />
     </task>
     <task id="LOCAL-00001" summary="Card and CustomerService was edited">
       <created>1615120421226</created>
