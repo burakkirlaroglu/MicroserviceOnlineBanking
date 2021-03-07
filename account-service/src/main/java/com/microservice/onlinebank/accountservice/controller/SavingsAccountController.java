@@ -35,9 +35,11 @@ public class SavingsAccountController {
     }
 
     @GetMapping("savings/customer/{customerTC}")
-    public SavingsAccountDto getAccountByCustomerTC(@PathVariable("customerTC") long customerTC) {
+    public List<SavingsAccountDto> getAccountByCustomerTC(@PathVariable("customerTC") long customerTC) {
         try {
-            return savingsAccountService.getAccountByCustomerTC(customerTC).toSavingsAccountDto();
+            return savingsAccountService.getAccountsByCustomerTC(customerTC).stream()
+                    .map(SavingsAccount::toSavingsAccountDto)
+                    .collect(Collectors.toList());
         } catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
         }

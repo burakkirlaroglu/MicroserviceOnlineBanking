@@ -1,5 +1,6 @@
 package com.microservice.onlinebank.accountservice.service.concrete;
 
+import com.microservice.onlinebank.accountservice.entity.DemandDepositAccount;
 import com.microservice.onlinebank.accountservice.entity.SavingsAccount;
 import com.microservice.onlinebank.accountservice.repository.SavingsAccountRepository;
 import com.microservice.onlinebank.accountservice.service.abstrct.SavingsAccountService;
@@ -10,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @Service
 public class SavingsAccountImpl implements SavingsAccountService {
@@ -52,13 +55,14 @@ public class SavingsAccountImpl implements SavingsAccountService {
     }
 
     @Override
-    public SavingsAccount getAccountByCustomerTC(long tc) {
-        SavingsAccount savingsAccount = savingsAccountRepository.getSavingsAccountByCustomerTC(tc);
-        if (savingsAccount != null) {
-            return savingsAccount;
-        }else{
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,tc+" number customer account is not found.");
+    public List<SavingsAccount> getAccountsByCustomerTC(long tc) {
+        List<SavingsAccount> savingsAccounts = savingsAccountRepository
+                .getSavingsAccountsByCustomerTC(tc);
+        if (!savingsAccounts.isEmpty()) {
+            return savingsAccounts;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer have not accounts");
         }
-
     }
+
 }

@@ -32,10 +32,12 @@ public class DemandDepositAccountController {
         return demandDepositAccountService.get(accountNumber).toDemandDepositAccountDto();
     }
 
-    @GetMapping("demand/customer/{customerTC}")
-    public DemandDepositAccountDto getAccountByCustomerTC(@PathVariable("customerTC") long customerTC) {
+    @GetMapping("demands/customer/{customerTC}")
+    public List<DemandDepositAccountDto> getAccountByCustomerTC(@PathVariable("customerTC") long customerTC) {
         try {
-            return demandDepositAccountService.getAccountByCustomerTC(customerTC).toDemandDepositAccountDto();
+            return demandDepositAccountService.getAccountsByCustomerTC(customerTC).stream()
+                    .map(DemandDepositAccount::toDemandDepositAccountDto)
+                    .collect(Collectors.toList());
         } catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
         }
