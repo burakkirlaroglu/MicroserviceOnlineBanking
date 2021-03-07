@@ -17,7 +17,7 @@ public class DemandDepositAccount {
     private int accountBalance;
     private Currency accountCurrency;
     private LocalDate accountCreationDate;
-
+    private long customerTC;
     public DemandDepositAccountDto toDemandDepositAccountDto() {
         return DemandDepositAccountDto.builder()
                 .accountNumber(this.accountNumber)
@@ -25,6 +25,7 @@ public class DemandDepositAccount {
                 .accountBalance(this.accountBalance)
                 .accountCurrency(this.accountCurrency)
                 .accountCreationDate(this.accountCreationDate)
+                .customerTC(this.customerTC)
                 .build();
     }
 }

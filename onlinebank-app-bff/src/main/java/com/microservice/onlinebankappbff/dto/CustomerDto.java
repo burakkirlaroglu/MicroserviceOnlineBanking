@@ -1,13 +1,12 @@
 package com.microservice.onlinebankappbff.dto;
 
-import com.microservice.onlinebankappbff.entity.Address;
-import com.microservice.onlinebankappbff.entity.Card;
-import com.microservice.onlinebankappbff.entity.Customer;
+import com.microservice.onlinebankappbff.entity.*;
 import com.microservice.onlinebankappbff.utility.enums.gender.Gender;
 import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,6 +24,8 @@ public class CustomerDto {
     private boolean isState;
     private Address address;
     private List<Card> cards;
+    private List<DemandDepositAccount> demandDepositAccounts;
+    private List<SavingsAccount> savingsAccounts;
 
     public Customer toCustomer() {
         return Customer.builder()
@@ -38,6 +39,8 @@ public class CustomerDto {
                 .isState(this.isState)
                 .address(this.address)
                 .cards(this.cards)
+                .demandDepositAccounts(this.demandDepositAccounts)
+                .savingsAccounts(this.savingsAccounts)
                 .build();
     }
 }
