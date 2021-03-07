@@ -1,17 +1,0 @@
-
-7
-java:S1643"Use a StringBuilder instead.(³Õ¤ùÿÿÿÿ
-2
-java:S1643"Use a StringBuilder instead.(ª¨ú£
-7
-java:S1643%"Use a StringBuilder instead.(í›¢ şÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÂøÓÑ
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(³ìÿÿÿÿÿ
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Å²‹³şÿÿÿÿ
-t	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÈÁ³˜ûÿÿÿÿ
-4
-java:S2119"Save and re-use this "Random".(ÂŸ«ù
-4
-java:S2119"Save and re-use this "Random".(ÂŸ«ù
-@
-java:S1481!"*Remove this unused "count" local variable.(·›÷Š
