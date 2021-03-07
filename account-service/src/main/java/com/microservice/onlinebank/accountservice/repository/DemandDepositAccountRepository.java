@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DemandDepositAccountRepository extends CrudRepository<DemandDepositAccount,Long> {
     Page<DemandDepositAccount> findAll(Pageable pageable);
+
+    DemandDepositAccount getDemandDepositAccountByCustomerTC(long tc);
 }

@@ -1,5 +1,6 @@
 package com.microservice.onlinebank.accountservice.controller;
 
+import com.microservice.onlinebank.accountservice.dto.DemandDepositAccountDto;
 import com.microservice.onlinebank.accountservice.dto.SavingsAccountDto;
 import com.microservice.onlinebank.accountservice.entity.SavingsAccount;
 import com.microservice.onlinebank.accountservice.service.abstrct.SavingsAccountService;
@@ -33,6 +34,14 @@ public class SavingsAccountController {
         return savingsAccountService.get(accountNumber).toSavingsAccountDto();
     }
 
+    @GetMapping("savings/customer/{customerTC}")
+    public SavingsAccountDto getAccountByCustomerTC(@PathVariable("customerTC") long customerTC) {
+        try {
+            return savingsAccountService.getAccountByCustomerTC(customerTC).toSavingsAccountDto();
+        } catch (Exception exception) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
+        }
+    }
 
     @GetMapping(value = "/all/savings", params = {"page", "size"})
     public List<SavingsAccountDto> getAll(@Min(value = 0) @RequestParam("page") int page, @Min(value = 1) @RequestParam("size") int size) {

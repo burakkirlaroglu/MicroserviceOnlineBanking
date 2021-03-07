@@ -1,6 +1,7 @@
 package com.microservice.onlinebank.accountservice.service.concrete;
 
 import com.microservice.onlinebank.accountservice.entity.DemandDepositAccount;
+import com.microservice.onlinebank.accountservice.entity.SavingsAccount;
 import com.microservice.onlinebank.accountservice.repository.DemandDepositAccountRepository;
 import com.microservice.onlinebank.accountservice.service.abstrct.DemandDepositAccountService;
 import com.microservice.onlinebank.accountservice.utility.generate.account.Account;
@@ -49,6 +50,16 @@ public class DemandDepositAccountImpl implements DemandDepositAccountService {
     @Override
     public Page<DemandDepositAccount> getAccounts(Pageable pageable) {
         return demandDepositAccountRepository.findAll(pageable);
+    }
+
+    @Override
+    public DemandDepositAccount getAccountByCustomerTC(long tc) {
+        DemandDepositAccount demandDepositAccount = demandDepositAccountRepository.getDemandDepositAccountByCustomerTC(tc);
+        if (demandDepositAccount != null) {
+            return demandDepositAccount;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, tc + " number customer account is not found.");
+        }
     }
 
 }

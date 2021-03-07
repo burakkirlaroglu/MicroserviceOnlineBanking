@@ -8,6 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SavingsAccountRepository extends CrudRepository<SavingsAccount,Long> {
+public interface SavingsAccountRepository extends CrudRepository<SavingsAccount, Long> {
     Page<SavingsAccount> findAll(Pageable pageable);
+
+    SavingsAccount getSavingsAccountByCustomerTC(long tc);
 }

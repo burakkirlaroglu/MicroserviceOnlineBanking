@@ -32,12 +32,23 @@ public class DemandDepositAccountController {
         return demandDepositAccountService.get(accountNumber).toDemandDepositAccountDto();
     }
 
-    @GetMapping(value = "/demands",params = {"page","size"})
-    public List<DemandDepositAccountDto> getAll(@Min(value = 0) @RequestParam("page") int page, @Min(value = 1) @RequestParam("size") int size){
+    @GetMapping("demand/customer/{customerTC}")
+    public DemandDepositAccountDto getAccountByCustomerTC(@PathVariable("customerTC") long customerTC) {
+        try {
+            return demandDepositAccountService.getAccountByCustomerTC(customerTC).toDemandDepositAccountDto();
+        } catch (Exception exception) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/demands", params = {"page", "size"})
+    public List<DemandDepositAccountDto> getAll(@Min(value = 0) @RequestParam("page") int page, @Min(value = 1) @RequestParam("size") int size) {
         return demandDepositAccountService.getAccounts(PageRequest.of(page, size)).stream()
                 .map(DemandDepositAccount::toDemandDepositAccountDto)
                 .collect(Collectors.toList());
     }
+
+
     @DeleteMapping("/demand/delete/{accountNumber}")
     public String delete(@PathVariable("accountNumber") long accountNumber) {
         try {

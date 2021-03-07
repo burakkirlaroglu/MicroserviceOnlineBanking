@@ -6,6 +6,9 @@ import com.microservice.onlinebank.accountservice.utility.enums.Currency;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -24,6 +27,7 @@ public class DemandDepositAccount {
     private Currency accountCurrency;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate accountCreationDate;
+    private long customerTC;
 
     public DemandDepositAccountDto toDemandDepositAccountDto() {
         return DemandDepositAccountDto.builder()
@@ -32,6 +36,7 @@ public class DemandDepositAccount {
                 .accountBalance(this.accountBalance)
                 .accountCurrency(this.accountCurrency)
                 .accountCreationDate(this.accountCreationDate)
+                .customerTC(this.customerTC)
                 .build();
     }
 

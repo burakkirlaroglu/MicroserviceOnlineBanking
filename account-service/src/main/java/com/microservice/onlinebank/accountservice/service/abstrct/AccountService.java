@@ -9,4 +9,5 @@ public interface AccountService <T>{
     T get(long accountNumber);
     String delete(long accountNumber);
     Page<T> getAccounts(Pageable pageable);
+    T getAccountByCustomerTC(long tc);
 }

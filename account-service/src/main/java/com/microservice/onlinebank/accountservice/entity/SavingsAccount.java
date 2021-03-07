@@ -6,6 +6,9 @@ import com.microservice.onlinebank.accountservice.utility.enums.Currency;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -28,6 +31,7 @@ public class SavingsAccount{
     private double grossInterestReturn;
     private double savingsAccountNetGain;
     private double savingsAccountInterestRate;
+    private long customerTC;
 
     public SavingsAccountDto toSavingsAccountDto(){
         return SavingsAccountDto.builder()
@@ -40,6 +44,7 @@ public class SavingsAccount{
                 .grossInterestReturn(this.grossInterestReturn)
                 .savingsAccountNetGain(this.savingsAccountNetGain)
                 .savingsAccountInterestRate(this.savingsAccountInterestRate)
+                .customerTC(this.customerTC)
                 .build();
     }
 

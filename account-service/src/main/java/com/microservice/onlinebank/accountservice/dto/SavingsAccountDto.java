@@ -19,6 +19,7 @@ public class SavingsAccountDto {
     private double grossInterestReturn;
     private double savingsAccountNetGain;
     private double savingsAccountInterestRate;
+    private long customerTC;
 
     public SavingsAccount toSavingsAccount(){
         return SavingsAccount.builder()
@@ -31,6 +32,7 @@ public class SavingsAccountDto {
                 .grossInterestReturn(this.grossInterestReturn)
                 .savingsAccountNetGain(this.savingsAccountNetGain)
                 .savingsAccountInterestRate(this.savingsAccountInterestRate)
+                .customerTC(this.customerTC)
                 .build();
     }
 }

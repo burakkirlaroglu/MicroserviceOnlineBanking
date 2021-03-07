@@ -50,4 +50,15 @@ public class SavingsAccountImpl implements SavingsAccountService {
     public Page<SavingsAccount> getAccounts(Pageable pageable) {
         return savingsAccountRepository.findAll(pageable);
     }
+
+    @Override
+    public SavingsAccount getAccountByCustomerTC(long tc) {
+        SavingsAccount savingsAccount = savingsAccountRepository.getSavingsAccountByCustomerTC(tc);
+        if (savingsAccount != null) {
+            return savingsAccount;
+        }else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,tc+" number customer account is not found.");
+        }
+
+    }
 }
