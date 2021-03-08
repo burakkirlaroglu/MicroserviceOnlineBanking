@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.microservice.onlinebank.accountservice.dto.SavingsAccountDto;
 import com.microservice.onlinebank.accountservice.utility.enums.Currency;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -16,14 +14,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table
+@Document
 public class SavingsAccount{
     @Id
     private long accountNumber;
     private String accountIban;
     private int accountBalance;
-    @Enumerated(EnumType.STRING)
     private Currency accountCurrency;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate accountCreationDate;
