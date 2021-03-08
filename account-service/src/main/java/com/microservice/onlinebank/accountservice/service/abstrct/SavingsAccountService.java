@@ -4,4 +4,5 @@ import com.microservice.onlinebank.accountservice.entity.SavingsAccount;
 
 
 public interface SavingsAccountService extends AccountService<SavingsAccount>{
+    SavingsAccount update(SavingsAccount savingsAccount);
 }

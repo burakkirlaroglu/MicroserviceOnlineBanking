@@ -4,6 +4,7 @@ import com.microservice.onlinebank.accountservice.entity.DemandDepositAccount;
 import com.microservice.onlinebank.accountservice.entity.SavingsAccount;
 import com.microservice.onlinebank.accountservice.repository.DemandDepositAccountRepository;
 import com.microservice.onlinebank.accountservice.service.abstrct.DemandDepositAccountService;
+import com.microservice.onlinebank.accountservice.service.abstrct.SavingsAccountService;
 import com.microservice.onlinebank.accountservice.utility.generate.account.Account;
 import com.microservice.onlinebank.accountservice.utility.generate.iban.Iban;
 import org.springframework.data.domain.Page;
@@ -17,10 +18,12 @@ import java.util.List;
 @Service
 public class DemandDepositAccountImpl implements DemandDepositAccountService {
     private final DemandDepositAccountRepository demandDepositAccountRepository;
+    private final SavingsAccountService savingsAccountService;
 
-    public DemandDepositAccountImpl(DemandDepositAccountRepository demandDepositAccountRepository) {
+    public DemandDepositAccountImpl(DemandDepositAccountRepository demandDepositAccountRepository, SavingsAccountService savingsAccountService) {
         this.demandDepositAccountRepository = demandDepositAccountRepository;
 
+        this.savingsAccountService = savingsAccountService;
     }
 
     @Override
@@ -60,9 +63,23 @@ public class DemandDepositAccountImpl implements DemandDepositAccountService {
                 .getDemandDepositAccountsByCustomerTC(tc);
         if (!demandDepositAccounts.isEmpty()) {
             return demandDepositAccounts;
-        }else{
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer have not accounts");
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer have not accounts");
         }
     }
 
+    @Override
+    public DemandDepositAccount getAccountByIBAN(String accountIBAN) {
+        return demandDepositAccountRepository.getDemandDepositAccountsByAccountIban(accountIBAN);
+    }
+
+    @Override
+    public DemandDepositAccount differentAccountsBetweenMoneyTransfer(String demandDepositAccountIBAN, String savingsAccountIBAN, int money, int convertMoney) {
+        DemandDepositAccount demandDepositAccount = getAccountByIBAN(demandDepositAccountIBAN);
+        SavingsAccount savingsAccount = savingsAccountService.getAccountByIBAN(savingsAccountIBAN);
+        demandDepositAccount.setAccountBalance(demandDepositAccount.getAccountBalance() - money);
+        savingsAccount.setAccountBalance(savingsAccount.getAccountBalance() + convertMoney);
+        savingsAccountService.update(savingsAccount);
+        return demandDepositAccountRepository.save(demandDepositAccount);
+    }
 }

@@ -17,4 +17,5 @@ public interface DemandDepositAccountRepository extends MongoRepository<DemandDe
 
     List<DemandDepositAccount> getDemandDepositAccountsByCustomerTC(long tc);
 
+    DemandDepositAccount getDemandDepositAccountsByAccountIban(String accountIBAN);
 }

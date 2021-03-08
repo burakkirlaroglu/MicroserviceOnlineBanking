@@ -50,6 +50,13 @@ public class DemandDepositAccountController {
                 .collect(Collectors.toList());
     }
 
+    @PutMapping("/demand/{demandDepositAccountIBAN}/transfer/{savingsAccountIBAN}")
+    public DemandDepositAccountDto differentAccountsBetweenMoneyTransfer(@PathVariable("demandDepositAccountIBAN") String demandDepositAccountIBAN,
+                                                                  @PathVariable("savingsAccountIBAN") String savingsAccountIBAN,
+                                                                  @RequestParam("money") int money,
+                                                                  @RequestParam("convertMoney") int convertMoney) {
+        return demandDepositAccountService.differentAccountsBetweenMoneyTransfer(demandDepositAccountIBAN, savingsAccountIBAN, money, convertMoney).toDemandDepositAccountDto();
+    }
 
     @DeleteMapping("/demand/delete/{accountNumber}")
     public String delete(@PathVariable("accountNumber") long accountNumber) {

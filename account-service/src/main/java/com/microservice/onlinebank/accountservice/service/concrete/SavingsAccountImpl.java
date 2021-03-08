@@ -65,4 +65,13 @@ public class SavingsAccountImpl implements SavingsAccountService {
         }
     }
 
+    @Override
+    public SavingsAccount getAccountByIBAN(String accountIBAN) {
+        return savingsAccountRepository.getSavingsAccountByAccountIban(accountIBAN);
+    }
+
+    @Override
+    public SavingsAccount update(SavingsAccount savingsAccount) {
+        return savingsAccountRepository.save(savingsAccount);
+    }
 }

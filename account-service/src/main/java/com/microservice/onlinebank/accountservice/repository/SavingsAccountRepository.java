@@ -15,5 +15,6 @@ public interface SavingsAccountRepository extends MongoRepository<SavingsAccount
     Page<SavingsAccount> findAll(Pageable pageable);
 
     List<SavingsAccount> getSavingsAccountsByCustomerTC(long tc);
-    //SavingsAccount getSavingsAccountByCustomerTC(long tc);
+
+    SavingsAccount getSavingsAccountByAccountIban(String accountIBAN);
 }
