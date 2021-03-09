@@ -34,6 +34,11 @@ public class DemandDepositAccountImpl implements DemandDepositAccountService {
         return demandDepositAccountRepository.save(demandDepositAccount);
     }
 
+    @Override
+    public DemandDepositAccount update(DemandDepositAccount demandDepositAccount) {
+        return demandDepositAccountRepository.save(demandDepositAccount);
+    }
+
 
     @Override
     public DemandDepositAccount get(long accountNumber) {
@@ -70,7 +75,13 @@ public class DemandDepositAccountImpl implements DemandDepositAccountService {
 
     @Override
     public DemandDepositAccount getAccountByIBAN(String accountIBAN) {
-        return demandDepositAccountRepository.getDemandDepositAccountsByAccountIban(accountIBAN);
+        DemandDepositAccount demandDepositAccount = demandDepositAccountRepository.getDemandDepositAccountsByAccountIban(accountIBAN);
+        if (demandDepositAccount != null) {
+            return demandDepositAccount;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account is not found.");
+        }
+
     }
 
     @Override

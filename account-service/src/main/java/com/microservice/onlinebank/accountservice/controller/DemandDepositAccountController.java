@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +44,15 @@ public class DemandDepositAccountController {
         }
     }
 
+    @GetMapping("/demand/account/{accountIBAN}")
+    public DemandDepositAccountDto getAccountByIBAN(@PathVariable("accountIBAN") String accountIBAN) {
+        try {
+            return demandDepositAccountService.getAccountByIBAN(accountIBAN).toDemandDepositAccountDto();
+        } catch (Exception exception) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
+        }
+    }
+
     @GetMapping(value = "/demands", params = {"page", "size"})
     public List<DemandDepositAccountDto> getAll(@Min(value = 0) @RequestParam("page") int page, @Min(value = 1) @RequestParam("size") int size) {
         return demandDepositAccountService.getAccounts(PageRequest.of(page, size)).stream()
@@ -52,10 +62,15 @@ public class DemandDepositAccountController {
 
     @PutMapping("/demand/{demandDepositAccountIBAN}/transfer/{savingsAccountIBAN}")
     public DemandDepositAccountDto differentAccountsBetweenMoneyTransfer(@PathVariable("demandDepositAccountIBAN") String demandDepositAccountIBAN,
-                                                                  @PathVariable("savingsAccountIBAN") String savingsAccountIBAN,
-                                                                  @RequestParam("money") int money,
-                                                                  @RequestParam("convertMoney") int convertMoney) {
+                                                                         @PathVariable("savingsAccountIBAN") String savingsAccountIBAN,
+                                                                         @RequestParam("money") int money,
+                                                                         @RequestParam("convertMoney") int convertMoney) {
         return demandDepositAccountService.differentAccountsBetweenMoneyTransfer(demandDepositAccountIBAN, savingsAccountIBAN, money, convertMoney).toDemandDepositAccountDto();
+    }
+
+    @PutMapping("/demand/update")
+    public DemandDepositAccountDto update(@RequestBody DemandDepositAccountDto demandDepositAccountDto) {
+        return demandDepositAccountService.update(demandDepositAccountDto.toDemandDepositAccount()).toDemandDepositAccountDto();
     }
 
     @DeleteMapping("/demand/delete/{accountNumber}")

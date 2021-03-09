@@ -9,6 +9,8 @@ import java.util.List;
 public interface AccountService<T> {
     T create(T t);
 
+    T update(T t);
+
     T get(long accountNumber);
 
     String delete(long accountNumber);

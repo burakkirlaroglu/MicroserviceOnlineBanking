@@ -67,7 +67,12 @@ public class SavingsAccountImpl implements SavingsAccountService {
 
     @Override
     public SavingsAccount getAccountByIBAN(String accountIBAN) {
-        return savingsAccountRepository.getSavingsAccountByAccountIban(accountIBAN);
+        SavingsAccount savingsAccount = savingsAccountRepository.getSavingsAccountByAccountIban(accountIBAN);
+        if (savingsAccount != null) {
+            return savingsAccount;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account is not found");
+        }
     }
 
     @Override

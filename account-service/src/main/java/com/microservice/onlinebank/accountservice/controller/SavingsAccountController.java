@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,11 +46,25 @@ public class SavingsAccountController {
         }
     }
 
+    @GetMapping("/savings/account/{accountIBAN}")
+    public SavingsAccountDto getAccountByIBAN(@PathVariable("accountIBAN") String accountIBAN) {
+        try {
+            return savingsAccountService.getAccountByIBAN(accountIBAN).toSavingsAccountDto();
+        } catch (Exception exception) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
+        }
+    }
+
     @GetMapping(value = "/all/savings", params = {"page", "size"})
     public List<SavingsAccountDto> getAll(@Min(value = 0) @RequestParam("page") int page, @Min(value = 1) @RequestParam("size") int size) {
         return savingsAccountService.getAccounts(PageRequest.of(page, size)).stream()
                 .map(SavingsAccount::toSavingsAccountDto)
                 .collect(Collectors.toList());
+    }
+
+    @PutMapping("/savings/update")
+    public SavingsAccountDto update(@RequestBody SavingsAccountDto savingsAccountDto) {
+        return savingsAccountService.update(savingsAccountDto.toSavingsAccount()).toSavingsAccountDto();
     }
 
     @DeleteMapping("/savings/delete/{accountNumber}")
