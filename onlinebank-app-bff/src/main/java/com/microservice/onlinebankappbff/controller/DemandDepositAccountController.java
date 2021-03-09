@@ -1,8 +1,11 @@
 package com.microservice.onlinebankappbff.controller;
 
 import com.microservice.onlinebankappbff.dto.DemandDepositAccountDto;
+import com.microservice.onlinebankappbff.dto.TransferDto;
 import com.microservice.onlinebankappbff.service.DemandDepositAccountService;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -23,5 +26,10 @@ public class DemandDepositAccountController {
                                                                             @PathVariable("savingsAccountNumber") long savingsAccountNumber,
                                                                             @RequestParam("money") int money) {
         return demandDepositAccountService.transferMoney(accountNumber, savingsAccountNumber, money).toDemandDepositAccountDto();
+    }
+
+    @PutMapping("/demand/transfer")
+    public DemandDepositAccountDto getDifferentAccountsBetweenMoneyTransfer(@NotNull @RequestBody TransferDto transferDto) {
+        return demandDepositAccountService.accountBetweenMoneyTransfer(transferDto.toTransfer()).toDemandDepositAccountDto();
     }
 }
